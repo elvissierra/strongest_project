@@ -1,14 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
 
-r = requests.get("https://www.serebii.net/scarletviolet/pokemon.shtml")
+req = requests.get("https://www.serebii.net/scarletviolet/pokemon.shtml")
 
-soup = BeautifulSoup(r.content, "html.parser")
+soup = BeautifulSoup(req.content, "html.parser")
 
-s = soup.find("td", class_="pkmn")
-content = s.find_all("a", href=True)
+search = soup.find("table", class_="tab")
 
-names = [a.get_text(strip=True) for a in content if "Name" in a["href"]]
+content = search.find_all("a", href=True)
+
+names = [link.get_text(strip=True) for link in content if "/pokedex-sv/" in link['href']]
 
 for name in names:
     print(name)
