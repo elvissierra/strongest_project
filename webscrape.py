@@ -17,6 +17,8 @@ names = [link.get_text(strip=True) for link in content if "/pokedex-sv/" in link
 for name in names:
     print(name)
 
+
+
 #fetch and parse each mons url
 """
 def fetch_data(url):
