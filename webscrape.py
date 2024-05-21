@@ -14,7 +14,6 @@ if search:
     
     for row in rows:
         a_tags = row.find_all("a", href=True)
-   
         names = [link.get_text(strip=True) for link in a_tags if "/pokedex-sv/" in link['href'] and link.get_text(strip=True)]
 
         img_tags = row.find_all("img", src=True)
