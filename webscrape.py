@@ -4,10 +4,9 @@ from bs4 import BeautifulSoup
 req = requests.get("https://www.serebii.net/scarletviolet/pokemon.shtml")
 soup = BeautifulSoup(req.content, "html.parser")
 search = soup.find("table", class_="tab")
-#iterate through each <tr> tag
-    #iterate through each <a> tag
-        #if tag.get_text(strip=True) and pattern "/pokemon-sv/"
-        #if pattern "/pokemon-bw/type/"
+"""
+Get data from table: name, types (up to 2), stats(hp, atk, def, spatk, spdef, speed)
+"""
 if search:
     obj_data = []
     rows = search.find_all("tr")
