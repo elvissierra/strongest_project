@@ -32,10 +32,12 @@ if search:
             if text.isdigit():
                 stats.append(int(text))
 
-        if name:
-            obj_data.append((name[0], types, stats))
+        if name and len(stats) == 6:
+            type1 = types[0] if len(types) > 0 else None
+            type2 = types[1] if len(types) > 1 else None
+            obj_data.append((name[0], type1, type2, *stats))
     
-    for name, types, stats in obj_data:
-        print(f"Pokémon: {name}, Types: {', '.join(types)}, Stats: {stats}")
+    for name, type1, type2, hp, attack, defense, sp_atk, sp_def, speed in obj_data:
+        print(f"Pokémon: {name}, Types: {type1}, {type2}, Stats: {hp}, {attack}, {defense}, {sp_atk}, {sp_def}, {speed}")
 else:
     print("Table not found.")
