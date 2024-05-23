@@ -5,13 +5,13 @@ import os
 
 load_dotenv()
 
-BASE_SCRAPE_URL = os.getenv("BASE_URL")
+BASE_URL = os.getenv("BASE_SCRAPE_URL")
 
 def scrape_data():
     """
     Get data from table: name, types (up to 2), stats(hp, atk, def, spatk, spdef, speed)
     """
-    req = requests.get(BASE_SCRAPE_URL)
+    req = requests.get(BASE_URL)
     soup = BeautifulSoup(req.content, "html.parser")
     search = soup.find("table", class_="tab")
     
