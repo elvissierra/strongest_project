@@ -1,12 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+
+BASE_SCRAPE_URL = os.getenv("BASE_URL")
 
 def scrape_data():
     """
     Get data from table: name, types (up to 2), stats(hp, atk, def, spatk, spdef, speed)
     """
-    req = requests.get("https://www.serebii.net/scarletviolet/pokemon.shtml")
+    req = requests.get(BASE_SCRAPE_URL)
     soup = BeautifulSoup(req.content, "html.parser")
     search = soup.find("table", class_="tab")
     
