@@ -2,3 +2,4 @@ scrape
 database.ini
 __pycache__
 .env
+migrations
