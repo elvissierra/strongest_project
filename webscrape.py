@@ -48,6 +48,12 @@ def scrape_data():
         print("Table not found.")
 
     return obj_data
-obj_data = scrape_data()
-for name, type1, type2, hp, attack, defense, sp_atk, sp_def, speed in obj_data:
-            print(f"Pokémon: {name}, Types: {type1}, {type2}, Stats: {hp}, {attack}, {defense}, {sp_atk}, {sp_def}, {speed}")
+if __name__ == "__main__":
+    mon_data = scrape_data()
+    for data in mon_data:
+        print(data)
+
+
+#obj_data = scrape_data()
+#for name, type1, type2, hp, attack, defense, sp_atk, sp_def, speed in obj_data:
+#            print(f"Pokémon: {name}, Types: {type1}, {type2}, Stats: {hp}, {attack}, {defense}, {sp_atk}, {sp_def}, {speed}")
