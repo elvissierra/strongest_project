@@ -9,7 +9,7 @@ from django.db import models
 import uuid
 
 class Mon(models.Model):
-    id = models.UUIDField(defualt= uuid.uuid4, primary_key=True)
+    id = models.UUIDField(default= uuid.uuid4, primary_key=True)
     name = models.CharField(max_length=50)
     type1 = models.CharField(max_length=50)
     type2 = models.CharField(max_length=50, blank=True, null=True)
@@ -22,3 +22,6 @@ class Mon(models.Model):
 
     class Meta:
         db_table = 'mon'
+
+    def __str__(self):
+        return self.name
