@@ -22,4 +22,5 @@ class ObjGetPutDelete(APIView):
         mon = get_object_or_404(Mon, id=mon_id)
         return Response(ObjSerializer(mon, context={"request" : request}).data)
 
-#compore logic needed
+#compare based on stat here logic needed
+        
