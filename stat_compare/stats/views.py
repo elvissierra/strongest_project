@@ -5,17 +5,21 @@ from .serializers import ObjSerializer
 from rest_framework.response import Response
 
 
-# Create your views here.
 class ObjGetView(APIView):
-    
+    """
+    Get all objects
+    """
     def get(self, request, format=None):
         mons = Mon.objects.all()
         serializer = ObjSerializer(mons, many=True)
         return Response(serializer.data)
     
 class ObjGetPutDelete(APIView):
-
+    """
+    Get specific object
+    """
     def get(request, mon_id):
         mon = get_object_or_404(Mon, id=mon_id)
         return Response(ObjSerializer(mon, context={"request" : request}).data)
 
+#compore logic needed
