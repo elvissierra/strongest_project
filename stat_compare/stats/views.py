@@ -18,7 +18,7 @@ class ObjGetPutDelete(APIView):
     """
     Get specific object
     """
-    def get(request, mon_id):
+    def get(self, request, mon_id, format=None):
         note = get_object_or_404(Mon, id=mon_id)
         return Response(ObjSerializer(note, context={"request": request}).data)
 
