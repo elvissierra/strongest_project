@@ -19,8 +19,8 @@ class ObjGetPutDelete(APIView):
     Get specific object
     """
     def get(request, mon_id):
-        mon = get_object_or_404(Mon, id=mon_id)
-        return Response(ObjSerializer(mon, context={"request" : request}).data)
+        note = get_object_or_404(Mon, id=mon_id)
+        return Response(ObjSerializer(note, context={"request": request}).data)
 
 #compare based on stat here logic needed
         
