@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 
+#sql generated model
 class Mon(models.Model):
     id = models.UUIDField(default= uuid.uuid4, primary_key=True)
     name = models.CharField(max_length=50)
