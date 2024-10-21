@@ -21,6 +21,3 @@ class ObjGetPutDelete(APIView):
     def get(self, request, mon_id, format=None):
         note = get_object_or_404(Mon, id=mon_id)
         return Response(ObjSerializer(note, context={"request": request}).data)
-
-#compare based on stat here logic needed
-        
